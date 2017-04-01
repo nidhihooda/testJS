@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+  article, aside, figure, footer, header, hgroup,
+  menu, nav, section { display: block; }
+
+  p { font-family: Arial, sans-serif; }
+</style>
+
+</head>
+<body>
+  <p id="sandwich">An optional callback function example.</p>
+  <script>
+
+    function mySandwich(param1, param2, callback) {
+        alert('Started eating my sandwich.\n\nIt has: ' + param1 + ', ' + param2);
+
+        $('#sandwich').animate({
+                opacity: 0
+            }, 5000, function() {
+                // Animation complete.
+            });
+
+        //To make callback optional and call iff. function is passed
+        if (callback && typeof(callback) === "function") {
+          callback();
+        }
+    }
+
+    mySandwich('ham', 'cheese'
+    , function() { //If commented says - callback is not a function
+        alert('Finished eating my sandwich.');
+    });
+
+    mySandwich('ham', 'cheese'); //if (callback)
+
+    mySandwich('ham', 'cheese', 'vegetables'); //if (typeof(callback) === "function")
+  </script>
+
+
+</body>
