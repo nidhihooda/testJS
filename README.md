@@ -1,2 +1,0 @@
-# testJS
-Playing with JS
